@@ -65,16 +65,16 @@ cat <<EOF > absentform.tex
 \usepackage{absent-form}
 \usepackage[top=30truemm, bottom=30truemm, left=25truemm, right=25truemm]{geometry}
 
-\author{"$name"}
-\id{"$id"}
-\date{"$date"}
-\teacher{"$teacher"}
-\subject{"$subject"}
-\department{"$department"}
-\course{"$cource"}
-\grade{"$grade"}
-\reason{"$reason"}
-\absentdate{"$absentdate"}
+\author{$name}
+\id{$id}
+\date{$date}
+\teacher{$teacher}
+\subject{$subject}
+\department{$department}
+\course{$cource}
+\grade{$grade}
+\reason{$reason}
+\absentdate{$absentdate}
 \begin{document}
 \absentform
 \end{document}
