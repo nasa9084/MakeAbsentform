@@ -60,7 +60,8 @@ if [ "$teacher" = '' ];then
     teacher='Jack'
 fi
 
-echo "\documentclass[a4paper]{jarticle}
+cat <<EOF > absentform.tex
+\documentclass[a4paper]{jarticle}
 \usepackage{absent-form}
 \usepackage[top=30truemm, bottom=30truemm, left=25truemm, right=25truemm]{geometry}
 
@@ -74,44 +75,43 @@ echo "\documentclass[a4paper]{jarticle}
 \grade{"$grade"}
 \reason{"$reason"}
 \absentdate{"$absentdate"}
-
 \begin{document}
 \absentform
+\end{document}
+EOF
 
-\end{document}" > absentform.tex
-
-echo '\def\absentform{
+cat <<EOF > absent-form.sty
+\def\absentform{
 \setcounter{page}{0}
 \pagestyle{empty}
 \null
-
 \begin{center}
- {\huge {\sc 欠席届}}\\
+ {\huge {\sc 欠席届}}\\\\
 \end{center}
 \vskip 1cm
 \begin{flushright}
- \@date\\
+ \@date\\\\
 \end{flushright}
 \vskip 1cm
 \begin{flushleft}
- {\large \@teacher 先生\\
+ {\large \@teacher 先生\\\\
  \vskip 1cm
- 科目名: \@subject\\
+ 科目名: \@subject\\\\
  \vskip1cm
- 工学部 \@department 学科 \@course コース \@grade 年\\
- 学生番号: \@id\\
- 氏名: \@author\\}
+ 工学部 \@department 学科 \@course コース \@grade 年\\\\
+ 学生番号: \@id\\\\
+ 氏名: \@author\\\\}
 \end{flushleft}
 \begin{center}
- {\large 下記の理由により欠席しましたので、お届けします。\\
+ {\large 下記の理由により欠席しましたので、お届けします。\\\\
  \vskip 2cm
- 記\\}
+ 記\\\\}
 \end{center}
 \vskip 2cm
 \begin{flushleft}
- 欠席理由: \@reason\\
+ 欠席理由: \@reason\\\\
  \vskip 1cm
- 欠席日: \@absentdate\\
+ 欠席日: \@absentdate\\\\
 \end{flushleft}
 \vfil\newpage}
 
@@ -122,7 +122,8 @@ echo '\def\absentform{
 \def\grade#1{\gdef\@grade{#1}}
 \def\id#1{\gdef\@id{#1}}
 \def\reason#1{\gdef\@reason{#1}}
-\def\absentdate#1{\gdef\@absentdate{#1}}' > absent-form.sty
+\def\absentdate#1{\gdef\@absentdate{#1}}
+EOF
 
 if [ "$fname" = '' ];then
     fname=absentform_`date +%Y_%m_%d`_"$subject".pdf
@@ -137,4 +138,4 @@ do
     rm $i
 done
 
-evince "$fname"
+#evince "$fname"
