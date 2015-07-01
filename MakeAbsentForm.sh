@@ -137,5 +137,3 @@ for i in absent-form.sty absentform.aux absentform.dvi absentform.log absentform
 do
     rm $i
 done
-
-#evince "$fname"
