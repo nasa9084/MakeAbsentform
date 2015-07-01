@@ -1,4 +1,4 @@
-#!usr/bin/sh
+#!/bin/sh
 today=$(date +%Y年%m月%d日)
 
 while getopts o: OPT
