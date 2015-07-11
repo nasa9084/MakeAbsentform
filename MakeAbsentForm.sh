@@ -1,64 +1,59 @@
 #!/bin/sh
 today=$(date +%Y年%m月%d日)
 
-while getopts o:n:i:d:S:D:C:G: OPT
+while getopts o:n:i:d:S:D:C:G:r: OPT
 do
     case $OPT in
         o) fname=$OPTARG ;;
-        n) name=$OPTARG
-           nameflag=1 ;;
-        i) id=$OPTARG
-           idflag=1 ;;
-        d) date=$OPTARG
-           dateflag=1 ;;
-        S) section=$OPTARG
-           sectionflag=1 ;;
-        D) department=$OPTARG
-           departmentflag=1 ;;
-        C) course=$OPTARG
-           courseflag=1 ;;
-        G) grade=$OPTARG
-           gradeflag=1 ;;
+        n) name=$OPTARG ;;
+        i) id=$OPTARG ;;
+        d) date=$OPTARG ;;
+        S) section=$OPTARG ;;
+        D) department=$OPTARG ;;
+        C) course=$OPTARG ;;
+        G) grade=$OPTARG ;;
+        r) reason=$OPTARG ;;
+
     esac
 done
 echo "$fname"
 
-if [ "$nameflag" = '' ];then
+if [ "$name" = '' ];then
     echo "名前[default:名無しの権兵衛]？"
     read name
     if [ "$name" = '' ];then
         name='名無しの権兵衛'
     fi
 fi
-if [ "$idflag" = '' ];then
+if [ "$id" = '' ];then
     echo "学生番号[default:00000000]？"
     read id
     if [ "$id" = '' ];then
         id='00000000'
     fi
 fi
-if [ "$dateflag" = '' ];then
+if [ "$date" = '' ];then
     echo "提出日[default:" $today "]？"
     read date
     if [ "$date" = '' ];then
         date=$today
     fi
 fi
-if [ "$sectionflag" = '' ];then
+if [ "$section" = '' ];then
     echo "学部[default:工]？"
     read section
     if [ "$section" = '' ];then
         section='工'
     fi
 fi
-if [ "$departmentflag" = '' ];then
+if [ "$department" = '' ];then
     echo "学科[default:情報エレクトロニクス]？"
     read department
     if [ "$department" = '' ];then
         department='情報エレクトロニクス'
     fi
 fi
-if [ "$courseflag" = '' ];then
+if [ "$course" = '' ];then
     echo "コース[default:コンピュータサイエンス]？"
     read cource
     if [ "$cource" = '' ];then
