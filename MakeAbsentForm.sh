@@ -38,10 +38,12 @@ if [ "$dateflag" = '' ];then
         date=$today
     fi
 fi
-echo "学部[default:工]？"
-read section
-if [ "$section" = '' ];then
-    section='工'
+if [ "$sectionflag" = '' ];then
+    echo "学部[default:工]？"
+    read section
+    if [ "$section" = '' ];then
+        section='工'
+    fi
 fi
 echo "学科[default:情報エレクトロニクス]？"
 read department
