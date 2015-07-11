@@ -11,10 +11,12 @@ do
 done
 echo "$fname"
 
-echo "名前[default:名無しの権兵衛]？"
-read name
-if [ "$name" = '' ];then
-    name='名無しの権兵衛'
+if [ "$nameflag" = '' ];then
+    echo "名前[default:名無しの権兵衛]？"
+    read name
+    if [ "$name" = '' ];then
+        name='名無しの権兵衛'
+    fi
 fi
 echo "学生番号[default:00000000]？"
 read id
