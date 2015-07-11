@@ -76,10 +76,12 @@ if [ "$reason" = '' ];then
         reason='体調不良'
     fi
 fi
-echo "欠席日[default:" $today "]？"
-read absentdate
 if [ "$absentdate" = '' ];then
-    absentdate=$today
+    echo "欠席日[default:" $today "]？"
+    read absentdate
+    if [ "$absentdate" = '' ];then
+        absentdate=$today
+    fi
 fi
 echo "科目[default: 算数]？"
 read subject
