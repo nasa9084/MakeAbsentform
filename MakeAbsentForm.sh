@@ -20,10 +20,12 @@ if [ "$nameflag" = '' ];then
         name='名無しの権兵衛'
     fi
 fi
-echo "学生番号[default:00000000]？"
-read id
-if [ "$id" = '' ];then
-    id='00000000'
+if [ "$idflag" = '' ];then
+    echo "学生番号[default:00000000]？"
+    read id
+    if [ "$id" = '' ];then
+        id='00000000'
+    fi
 fi
 echo "提出日[default:" $today "]？"
 read date
