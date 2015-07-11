@@ -1,7 +1,7 @@
 #!/bin/sh
 today=$(date +%Y年%m月%d日)
 
-while getopts o:n:i:d:S:D:C: OPT
+while getopts o:n:i:d:S:D:C:G: OPT
 do
     case $OPT in
         o) fname=$OPTARG ;;
@@ -17,6 +17,8 @@ do
            departmentflag=1 ;;
         C) course=$OPTARG
            courseflag=1 ;;
+        G) grade=$OPTARG
+           gradeflag=1 ;;
     esac
 done
 echo "$fname"
