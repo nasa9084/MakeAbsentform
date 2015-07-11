@@ -1,7 +1,7 @@
 #!/bin/sh
 today=$(date +%Y年%m月%d日)
 
-while getopts o:n:i:d:S:D:C:G:r:a: OPT
+while getopts o:n:i:d:S:D:C:G:r:a:s: OPT
 do
     case $OPT in
         o) fname=$OPTARG ;;
@@ -14,6 +14,7 @@ do
         G) grade=$OPTARG ;;
         r) reason=$OPTARG ;;
         a) absentdate=$OPTARG ;;
+        s) subject=$OPTARG ;;
     esac
 done
 echo "$fname"
