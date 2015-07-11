@@ -90,10 +90,12 @@ if [ "$subject" = '' ];then
         subject='算数'
     fi
 fi
-echo "教員氏名[default: Jack]？"
-read teacher
 if [ "$teacher" = '' ];then
-    teacher='Jack'
+    echo "教員氏名[default: Jack]？"
+    read teacher
+    if [ "$teacher" = '' ];then
+        teacher='Jack'
+    fi
 fi
 
 cat <<EOF > absentform.tex
