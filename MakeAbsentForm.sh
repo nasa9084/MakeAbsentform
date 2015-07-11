@@ -24,6 +24,11 @@ read date
 if [ "$date" = '' ];then
     date=$today
 fi
+echo "学部[default:工]？"
+read section
+if [ "$section" = '' ];then
+    section='工'
+fi
 echo "学科[default:情報エレクトロニクス]？"
 read department
 if [ "$department" = '' ];then
@@ -70,6 +75,7 @@ cat <<EOF > absentform.tex
 \date{$date}
 \teacher{$teacher}
 \subject{$subject}
+\section{$section}
 \department{$department}
 \course{$cource}
 \grade{$grade}
@@ -98,7 +104,7 @@ cat <<EOF > absent-form.sty
  \vskip 1cm
  科目名: \@subject\\\\
  \vskip1cm
- 工学部 \@department 学科 \@course コース \@grade 年\\\\
+ \@section 学部 \@department 学科 \@course コース \@grade 年\\\\
  学生番号: \@id\\\\
  氏名: \@author\\\\}
 \end{flushleft}
@@ -117,6 +123,7 @@ cat <<EOF > absent-form.sty
 
 \def\teacher#1{\gdef\@teacher{#1}}
 \def\subject#1{\gdef\@subject{#1}}
+\def\section#1{\gdef\@section{#1}}
 \def\department#1{\gdef\@department{#1}}
 \def\course#1{\gdef\@course{#1}}
 \def\grade#1{\gdef\@grade{#1}}
