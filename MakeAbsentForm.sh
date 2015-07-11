@@ -56,10 +56,12 @@ if [ "$departmentflag" = '' ];then
         department='情報エレクトロニクス'
     fi
 fi
-echo "コース[default:コンピュータサイエンス]？"
-read cource
-if [ "$cource" = '' ];then
-    cource='コンピュータサイエンス'
+if [ "$courseflag" = '' ];then
+    echo "コース[default:コンピュータサイエンス]？"
+    read cource
+    if [ "$cource" = '' ];then
+        cource='コンピュータサイエンス'
+    fi
 fi
 echo "学年[default:3]？"
 read grade
