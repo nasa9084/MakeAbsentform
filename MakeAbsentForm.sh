@@ -47,10 +47,12 @@ if [ "$sectionflag" = '' ];then
         section='工'
     fi
 fi
-echo "学科[default:情報エレクトロニクス]？"
-read department
-if [ "$department" = '' ];then
-    department='情報エレクトロニクス'
+if [ "$departmentflag" = '' ];then
+    echo "学科[default:情報エレクトロニクス]？"
+    read department
+    if [ "$department" = '' ];then
+        department='情報エレクトロニクス'
+    fi
 fi
 echo "コース[default:コンピュータサイエンス]？"
 read cource
