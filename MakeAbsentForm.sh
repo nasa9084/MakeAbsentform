@@ -69,10 +69,12 @@ if [ "$grade" = '' ];then
         grade=3
     fi
 fi
-echo "理由[default:体調不良]？"
-read reason
 if [ "$reason" = '' ];then
-    reason='体調不良'
+    echo "理由[default:体調不良]？"
+    read reason
+    if [ "$reason" = '' ];then
+        reason='体調不良'
+    fi
 fi
 echo "欠席日[default:" $today "]？"
 read absentdate
