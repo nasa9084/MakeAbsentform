@@ -29,10 +29,12 @@ if [ "$idflag" = '' ];then
         id='00000000'
     fi
 fi
-echo "提出日[default:" $today "]？"
-read date
-if [ "$date" = '' ];then
-    date=$today
+if [ "$dateflag" = '' ];then
+    echo "提出日[default:" $today "]？"
+    read date
+    if [ "$date" = '' ];then
+        date=$today
+    fi
 fi
 echo "学部[default:工]？"
 read section
