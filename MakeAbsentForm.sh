@@ -1,7 +1,7 @@
 #!/bin/sh
 today=$(date +%Y年%m月%d日)
 
-while getopts o:n:i: OPT
+while getopts o:n:i:d: OPT
 do
     case $OPT in
         o) fname=$OPTARG ;;
@@ -9,6 +9,8 @@ do
            nameflag=1 ;;
         i) id=$OPTARG
            idflag=1 ;;
+        d) date=$OPTARG
+           dateflag=1 ;;
     esac
 done
 echo "$fname"
