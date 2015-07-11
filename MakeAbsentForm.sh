@@ -10,7 +10,7 @@ do
         d) date=$OPTARG ;;
         S) section=$OPTARG ;;
         D) department=$OPTARG ;;
-        C) course=$OPTARG ;;
+        C) cource=$OPTARG ;;
         G) grade=$OPTARG ;;
         r) reason=$OPTARG ;;
         a) absentdate=$OPTARG ;;
@@ -55,7 +55,7 @@ if [ "$department" = '' ];then
         department='情報エレクトロニクス'
     fi
 fi
-if [ "$course" = '' ];then
+if [ "$cource" = '' ];then
     echo "コース[default:コンピュータサイエンス]？"
     read cource
     if [ "$cource" = '' ];then
