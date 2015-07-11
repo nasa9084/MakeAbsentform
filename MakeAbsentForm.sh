@@ -1,10 +1,12 @@
 #!/bin/sh
 today=$(date +%Y年%m月%d日)
 
-while getopts o: OPT
+while getopts o:n: OPT
 do
     case $OPT in
         o) fname=$OPTARG ;;
+        n) name=$OPTARG
+           nameflag=1;;
     esac
 done
 echo "$fname"
