@@ -62,10 +62,12 @@ if [ "$course" = '' ];then
         cource='コンピュータサイエンス'
     fi
 fi
-echo "学年[default:3]？"
-read grade
 if [ "$grade" = '' ];then
-    grade=3
+    echo "学年[default:3]？"
+    read grade
+    if [ "$grade" = '' ];then
+        grade=3
+    fi
 fi
 echo "理由[default:体調不良]？"
 read reason
