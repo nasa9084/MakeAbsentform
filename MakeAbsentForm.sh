@@ -83,10 +83,12 @@ if [ "$absentdate" = '' ];then
         absentdate=$today
     fi
 fi
-echo "科目[default: 算数]？"
-read subject
 if [ "$subject" = '' ];then
-    subject='算数'
+    echo "科目[default: 算数]？"
+    read subject
+    if [ "$subject" = '' ];then
+        subject='算数'
+    fi
 fi
 echo "教員氏名[default: Jack]？"
 read teacher
